@@ -90,6 +90,8 @@ echo "<body>" >> $prefix/mission.html
 for  line in $(< $prefix/mission); do
   echo "<a href="$line"> $line </a> <br />" >> $prefix/mission.html
 done
+echo "</body>" >> $prefix/mission.html
+echo "</html>" >> $prefix/mission.html
 
 
 
