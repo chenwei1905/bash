@@ -22,6 +22,7 @@ for file in $(< file.log2); do
       rm -f $file
     fi
 done
+#备份文件保留3次操作
 mv file.log1 file.log2
 mv $prefix/mission1.html $prefix/mission2.html
 mv $prefix/mission1 $prefix/mission2
