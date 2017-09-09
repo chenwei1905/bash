@@ -1,6 +1,6 @@
 ### nginx配置文件更改参数的脚本
 -----------------------------------------------
-把需要更改的行数保存到数据结构字典当中<br>
+* 把需要更改的行数保存到数据结构字典当中<br>
 ```Bash 
 declare -A dic
 dic=([25]="advert_pos 0; #广告插入的位置, 0为后, 1为前;"  \
@@ -11,4 +11,20 @@ dic=([25]="advert_pos 0; #广告插入的位置, 0为后, 1为前;"  \
      [32]="advert_ts;"  \
      [33]="}" )
 ```
+* 创建参数修改函数避免重复代码
+```Bash
+fun1(){
+    for key in $keys
+    do
+        if [[ $key == 28 ]]; then
+            line="    $1${dic[$key]} $time ; #广告间隔时间(单位：秒);"
+        else
+            line="    $1${dic[$key]}"
+        fi
+        #echo "${line}"
+        sed -i -e "${key}c\ $line" /etc/nginx/conf.d/live.conf
+     done
+}
+```
+
 
