@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare -A dic
 dic=([25]="advert_pos 0; #广告插入的位置, 0为后, 1为前;"  \
